@@ -48,6 +48,10 @@ accumulation. The available presets:
   uses that many `bfloat16` operations to *emulate* higher precision: `_X3`
   approaches `float32` accuracy, `_X6` and `_X9` exceed it, at
   proportionally higher cost.
+- `F8E4M3FN_F8E4M3FN_F32_X3`, `F8E4M3FN_F8E4M3FN_F32_X4`: `bfloat16` or
+  `float32` inputs split into two `float8_e4m3fn` slices with per channel
+  exponent scaling, using 3 or 4 `float8_e4m3fn` dot products accumulated in
+  `float32`.
 - `TF32_TF32_F32`, `TF32_TF32_F32_X3` — TensorFloat32, and its 3-operation
   higher-precision emulation.
 - `ANY_F8_ANY_F8_F32`, `ANY_F8_ANY_F8_F32_FAST_ACCUM` — any `float8` input
